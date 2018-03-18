@@ -56,6 +56,8 @@ public class telefonos extends javax.swing.JFrame {
         txtprincipal = new javax.swing.JTextField();
         txtsecundaria = new javax.swing.JTextField();
         btnejecutar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,6 +187,15 @@ public class telefonos extends javax.swing.JFrame {
         });
 
         btnejecutar.setText("Ejecutar");
+        btnejecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnejecutarActionPerformed(evt);
+            }
+        });
+
+        txt.setColumns(20);
+        txt.setRows(5);
+        jScrollPane1.setViewportView(txt);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,8 +242,11 @@ public class telefonos extends javax.swing.JFrame {
                         .addComponent(rdbflash))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(172, 172, 172)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,7 +290,9 @@ public class telefonos extends javax.swing.JFrame {
                     .addComponent(txtsecundaria))
                 .addGap(18, 18, 18)
                 .addComponent(btnejecutar)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -482,7 +498,21 @@ public class telefonos extends javax.swing.JFrame {
 
     private void txtprecioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprecioKeyPressed
         // TODO add your handling code here:
+        
+        // txt.append("Pantalones: "+subp +"\n");
+        
+        
+        
+        
     }//GEN-LAST:event_txtprecioKeyPressed
+
+    private void btnejecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnejecutarActionPerformed
+       txt.setText("El valor de cpu es: "+txtnucleos.getText()+"        El tamaño de pantalla es: "+txtpantalla.getText()+"\n");
+       txt.append("Memoria RAM es: "+txtram.getText()+"         Lagarantia es de :"+txtgarantia.getText() +"\n");
+       txt.append("El precio es de: " +txtprecio.getText()+"        La marca es: " +cmbmarca.getSelectedItem()+"\n");
+       txt.append("Posee camara de: "+rdbcamaraprincipal.getActionCommand()+" "+txtprincipal.getText()+ " "+rdbcamarasecundaria.getActionCommand() +" "+txtsecundaria.getText()+" y "+rdbflash.getActionCommand());
+       // TODO add your handling code here:
+    }//GEN-LAST:event_btnejecutarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -530,10 +560,12 @@ public class telefonos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.ButtonGroup propiedades;
     private javax.swing.JRadioButton rdbcamaraprincipal;
     private javax.swing.JRadioButton rdbcamarasecundaria;
     private javax.swing.JRadioButton rdbflash;
+    public static javax.swing.JTextArea txt;
     private javax.swing.JTextField txtgarantia;
     private javax.swing.JTextField txtnucleos;
     private javax.swing.JTextField txtpantalla;
